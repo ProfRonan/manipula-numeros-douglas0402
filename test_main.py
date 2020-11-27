@@ -24,9 +24,9 @@ class Test(unittest.TestCase):
             a2 = 3 * a + c
             a3 = c**3
             assert mock_input.call_count == 3
-            mock_print.called_with(f'valor da opção 1: {a1}')
-            mock_print.called_with(f'valor da opção 2: {a2}')
-            mock_print.called_with(f'valor da opção 3: {a3}')
+            mock_print.assert_called_with(f'valor da opção 1: {a1}')
+            mock_print.assert_called_with(f'valor da opção 2: {a2}')
+            mock_print.assert_called_with(f'valor da opção 3: {a3}')
 
 
 if __name__ == '__main__':
