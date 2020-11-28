@@ -2,7 +2,7 @@
 
 import unittest
 import random
-from unittest.mock import patch
+from unittest.mock import call, patch
 import main
 
 
@@ -24,9 +24,8 @@ class Test(unittest.TestCase):
             a2 = 3 * a + c
             a3 = c**3
             assert mock_input.call_count == 3
-            mock_print.assert_called_with(f'valor da opção 1: {a1}.')
-            mock_print.assert_called_with(f'valor da opção 2: {a2}.')
-            mock_print.assert_called_with(f'valor da opção 3: {a3}.')
+            calls = [call(f'valor da opção 1: {a1}.'), call(f'valor da opção 2: {a2}.'), call(f'valor da opção 3: {a3}.')]
+            mock_print.assert_has_calls(calls)
 
 
 if __name__ == '__main__':
