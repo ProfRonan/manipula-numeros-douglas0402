@@ -20,11 +20,15 @@ class Test(unittest.TestCase):
                        'builtins.print') as mock_print:
             main.main()
             # O teste se a saída corresponde ao especificado fica aqui.
-            a1 = 2 * a + 0.5 * b
+            a1 = 2 * a * 0.5 * b
             a2 = 3 * a + c
             a3 = c**3
             assert mock_input.call_count == 3
-            calls = [call(f'valor da opção 1: {a1}.'), call(f'valor da opção 2: {a2}.'), call(f'valor da opção 3: {a3}.')]
+            calls = [
+                call(f'valor da opção 1: {a1}.'),
+                call(f'valor da opção 2: {a2}.'),
+                call(f'valor da opção 3: {a3}.')
+            ]
             mock_print.assert_has_calls(calls)
 
 
